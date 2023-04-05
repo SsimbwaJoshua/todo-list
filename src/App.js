@@ -1,5 +1,6 @@
 import react, { useState, useEffect } from "react";
 import "./App.css";
+import { TodoList } from "./componets/TodoList";
 
 function App() {
   const styling1 = {
@@ -36,6 +37,7 @@ function App() {
           color changes
         </p>
       </>
+      <TodoList />
     </div>
   );
 }
