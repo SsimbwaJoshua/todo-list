@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import { ReactDOM } from "react";
+import React from "react";
 
 export const TodoList = () => {
   const [message, setMessage] = useState("");
+  const [list, setList] = useState([]);
 
   const handleChange = (event) => {
     setMessage(event.target.value);
@@ -10,19 +11,10 @@ export const TodoList = () => {
 
   //logic for printing the the things to do
 
-  const toDoItem = () => {
-    <div>
-      {
-        <p>
-          {<input type="checkbox" />} {message}
-        </p>
-      }
-    </div>;
-  };
-
   const submitTodo = (event) => {
     event.preventDefault();
-    const list = { message };
+    console.log("submit is now true");
+    (message) => {};
     console.log(list);
   };
 
@@ -38,8 +30,9 @@ export const TodoList = () => {
         />
         <input type="submit" />
         <br />
-        <p>{list.message}</p>
       </form>
+
+      <ul>{list}</ul>
     </div>
   );
 };
