@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import React from "react";
+import { v4 as uuidv4 } from "uuid";
 
 export const TodoList = () => {
   const [message, setMessage] = useState("");
@@ -11,23 +12,29 @@ export const TodoList = () => {
 
   //logic for printing the the things to do
 
+  /////////////////////////////////////////
   const submitTodo = (event) => {
     event.preventDefault();
+    console.log("clicked");
 
-    message = {
-      id: list.length++,
-      text: { message },
-    };
-
-    const newList = [...list, message];
+    const newList = [
+      ...list,
+      {
+        id: uuidv4(),
+        text: message,
+      },
+    ];
     setList(newList);
   };
 
   //logic for removing task
-  const removeTask = () => {
+  const removeTask = (id) => {
     console.log("clicked");
 
-    const newList = list.filter();
+    const newList = list.filter((task) => {
+      if (task.id != id) return task;
+    });
+    setList(newList);
   };
 
   return (
@@ -44,7 +51,8 @@ export const TodoList = () => {
         <input style={{ height: "30px" }} type="submit" />
       </form>
       <br />
-      {list.map((task, key) => {
+      {list.map((task, index) => {
+        // return console.log(task);
         return (
           <div
             style={{
@@ -59,11 +67,11 @@ export const TodoList = () => {
           >
             <div style={{ display: "flex", gap: "10px" }}>
               <input type="checkbox" />
-              <h1>{task}</h1>
+              <h1 key={index}>{task.text}</h1>
             </div>
             <button
               style={{ width: "30px", height: "30px" }}
-              onClick={removeTask}
+              onClick={() => removeTask(task.id)}
             >
               X
             </button>
