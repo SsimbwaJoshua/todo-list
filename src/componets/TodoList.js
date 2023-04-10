@@ -5,28 +5,18 @@ import { v4 as uuidv4 } from "uuid";
 export const TodoList = () => {
   /////////////////////////////////////////////////////////////
   //code to be updated with use Effect
-  const style1 = {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    margin: "0 50px ",
+  // const style1 = {
+  //   display: "flex",
+  //   justifyContent: "space-between",
+  //   alignItems: "center",
+  //   margin: "0 50px ",
 
-    backgroundColor: "red",
-    border: "2px solid #ccc",
-    padding: "2px",
-  };
+  //   // backgroundColor: "red",
+  //   border: "2px solid #ccc",
+  //   padding: "2px",
+  // };
 
-  const style2 = {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    margin: "0 50px ",
-
-    border: "2px solid #ccc",
-    padding: "2px",
-
-    backgroundColor: "green",
-  };
+  // const style2 =
   //code to be updated with useEffect
   //////////////////////////////////////////////////////////////
 
@@ -66,20 +56,16 @@ export const TodoList = () => {
   };
 
   // completed task
-  const complete = () => {
+  const complete = (id) => {
     const isComplete = list.map((task) => {
-      task.completed = !task.completed;
-
-      //////////////////////////////////
-      //cross checking code but unneccessary
-      if (task.completed === true) {
-        console.log("true");
+      if (task.id === id) {
+        task.completed = !task.completed;
+        return task;
       } else {
-        console.log("false");
+        return task;
       }
-      ////////////////////////////////////
     });
-    return isComplete;
+    setList(isComplete);
   };
 
   return (
@@ -99,9 +85,22 @@ export const TodoList = () => {
       {list.map((task, index) => {
         // return console.log(task);
         return (
-          <div key={index} style={task.complete ? style1 : style2}>
+          <div
+            key={index}
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              margin: "0 50px ",
+
+              border: "2px solid #ccc",
+              padding: "2px",
+
+              backgroundColor: task.completed ? "green" : "white",
+            }}
+          >
             <div style={{ display: "flex", gap: "10px" }}>
-              <input type="checkbox" onClick={complete} />
+              <input type="checkbox" onClick={() => complete(task.id)} />
               <h1>{task.text}</h1>
             </div>
             <button
