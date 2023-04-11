@@ -10,8 +10,27 @@
 
 .home-header {
   background-color: aquamarine;
-  padding: 24px;
+  padding: 24px 24px 96px 24px;
+  /* margin-bottom: 48px; */
 }
 
-.home-section {
+li {
+  margin-bottom: 5px;
+}
+.link:link,
+.link:visited {
+  text-decoration: none;
+  cursor: pointer;
+  color: white;
+  background-color: orangered;
+  padding: 8px 16px;
+  border-radius: 5px;
+}
+
+.link:active,
+.link:hover {
+  background-color: orange;
+  transition: 5ms;
+
+  transform: scale(1.2);
 }

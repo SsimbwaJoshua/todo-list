@@ -5,9 +5,9 @@ import "../App.css";
 
 export const HomePage = () => {
   return (
-    <div>
+    <div className="home">
       <header className="home-header">
-        <h1>THE TODO LIST APP</h1>
+        <h1 style={{ color: "orangered" }}>THE TODO LIST APP</h1>
         <p>
           Welcome to the todo list app. Note down your daily tasks and
           accomplish your daily goals in an orderly manner.
@@ -34,8 +34,12 @@ export const HomePage = () => {
           uporn refresh of the page
         </p>
       </section>
+      <br />
+      <br />
 
-      <Link to="/todolist">Todoz</Link>
+      <Link to="/todolist" className="link">
+        Todoz
+      </Link>
     </div>
   );
 };

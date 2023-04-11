@@ -71,7 +71,7 @@ export const TodoList = () => {
   };
 
   return (
-    <div>
+    <div style={{ marginTop: "30px" }}>
       <h1>THINGS TO DO</h1>
       <form onSubmit={submitTodo}>
         <input
@@ -114,8 +114,12 @@ export const TodoList = () => {
           </div>
         );
       })}
+      <br />
+      <br />
 
-      <Link to="/">HomePage</Link>
+      <Link to="/" className="link">
+        HomePage
+      </Link>
     </div>
   );
 };
