@@ -52,6 +52,7 @@ export const TodoList = () => {
       },
     ];
     setList(newList);
+    localStorage.setItem("message", JSON.stringify(newList));
   };
 
   //logic for removing task
@@ -62,6 +63,7 @@ export const TodoList = () => {
       if (task.id != id) return task;
     });
     setList(newList);
+    localStorage.setItem("message", JSON.stringify(newList));
   };
 
   // completed task
@@ -75,6 +77,7 @@ export const TodoList = () => {
       }
     });
     setList(isComplete);
+    localStorage.setItem("message", JSON.stringify(isComplete));
   };
 
   /////////////////////////////////////////
@@ -84,9 +87,9 @@ export const TodoList = () => {
     setList(JSON.parse(datafrmlocalStorage));
   }, []);
 
-  useEffect(() => {
-    localStorage.setItem("message", JSON.stringify(list));
-  }, [list]);
+  // useEffect(() => {
+  //   localStorage.setItem("message", JSON.stringify(list));
+  // }, [list]);
 
   ///////////////////////////////////////////////////////
 
