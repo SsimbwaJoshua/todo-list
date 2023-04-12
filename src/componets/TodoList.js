@@ -34,7 +34,14 @@ export const TodoList = () => {
   /////////////////////////////////////////
   const submitTodo = (event) => {
     event.preventDefault();
-    console.log("clicked");
+
+    //local storage
+    // localStorage.setItem("message", JSON.stringify(list));
+    // localStorage.getItem("message");
+
+    // const datafrmlocalStorage = localStorage.getItem("message");
+
+    //local storage
 
     const newList = [
       ...list,
@@ -69,6 +76,19 @@ export const TodoList = () => {
     });
     setList(isComplete);
   };
+
+  /////////////////////////////////////////
+  // implememnting local storage
+  useEffect(() => {
+    const datafrmlocalStorage = localStorage.getItem("message");
+    setList(JSON.parse(datafrmlocalStorage));
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("message", JSON.stringify(list));
+  }, [list]);
+
+  ///////////////////////////////////////////////////////
 
   return (
     <div style={{ marginTop: "30px" }}>
