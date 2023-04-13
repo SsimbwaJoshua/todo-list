@@ -5,25 +5,11 @@ import { Link } from "react-router-dom";
 import "../App.css";
 
 export const TodoList = () => {
-  /////////////////////////////////////////////////////////////
-  //code to be updated with use Effect
-  // const style1 = {
-  //   display: "flex",
-  //   justifyContent: "space-between",
-  //   alignItems: "center",
-  //   margin: "0 50px ",
-
-  //   // backgroundColor: "red",
-  //   border: "2px solid #ccc",
-  //   padding: "2px",
-  // };
-
-  // const style2 =
-  //code to be updated with useEffect
-  //////////////////////////////////////////////////////////////
-
   const [message, setMessage] = useState("");
   const [list, setList] = useState([]);
+
+  const [counter, setCounter] = useState(0);
+  const [completedTasksNum, setCompletedTaskNum] = useState(0);
 
   const handleChange = (event) => {
     setMessage(event.target.value);
@@ -53,6 +39,9 @@ export const TodoList = () => {
     ];
     setList(newList);
     localStorage.setItem("message", JSON.stringify(newList));
+
+    //counter
+    // setCounter(newList.length);
   };
 
   //logic for removing task
@@ -64,6 +53,9 @@ export const TodoList = () => {
     });
     setList(newList);
     localStorage.setItem("message", JSON.stringify(newList));
+
+    //counter
+    // setCounter(newList.length);
   };
 
   // completed task
@@ -84,8 +76,14 @@ export const TodoList = () => {
   // implememnting local storage
   useEffect(() => {
     const datafrmlocalStorage = localStorage.getItem("message");
-    setList(JSON.parse(datafrmlocalStorage));
-  }, []);
+    const returnedData = JSON.parse(datafrmlocalStorage);
+    // setList(returnedData);
+
+    //counter
+    setCounter(returnedData.length);
+
+    //checking for completed
+  }, [list]);
 
   // useEffect(() => {
   //   localStorage.setItem("message", JSON.stringify(list));
@@ -125,7 +123,15 @@ export const TodoList = () => {
             }}
           >
             <div style={{ display: "flex", gap: "10px" }}>
-              <input type="checkbox" onClick={() => complete(task.id)} />
+              {task.completed ? (
+                <input
+                  type="checkbox"
+                  onClick={() => complete(task.id)}
+                  checked
+                />
+              ) : (
+                <input type="checkbox" onClick={() => complete(task.id)} />
+              )}
               <h1>{task.text}</h1>
             </div>
             <button
@@ -139,10 +145,15 @@ export const TodoList = () => {
       })}
       <br />
       <br />
+      <button>clear completed</button>
 
       <Link to="/" className="link">
         HomePage
       </Link>
+      <section>
+        <h1>{counter} Tasks to complete</h1>
+        <h1>{completedTasksNum}</h1>
+      </section>
     </div>
   );
 };
