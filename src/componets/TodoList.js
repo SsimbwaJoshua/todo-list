@@ -10,6 +10,7 @@ export const TodoList = () => {
 
   const [counter, setCounter] = useState(0);
   const [completedTasksNum, setCompletedTaskNum] = useState(0);
+  const [pending, setPending] = useState(0);
 
   const handleChange = (event) => {
     setMessage(event.target.value);
@@ -41,21 +42,27 @@ export const TodoList = () => {
     localStorage.setItem("message", JSON.stringify(newList));
 
     //counter
-    // setCounter(newList.length);
+    setCounter(newList.length);
   };
 
   //logic for removing task
   const removeTask = (id) => {
-    console.log("clicked");
-
     const newList = list.filter((task) => {
       if (task.id != id) return task;
     });
     setList(newList);
     localStorage.setItem("message", JSON.stringify(newList));
 
-    //counter
-    // setCounter(newList.length);
+    // counter
+    setCounter(newList.length);
+
+    //checking for completed
+    const numCompleted = newList.filter((task) => {
+      if (task.completed) {
+        return task;
+      }
+    });
+    setCompletedTaskNum(numCompleted.length);
   };
 
   // completed task
@@ -70,6 +77,22 @@ export const TodoList = () => {
     });
     setList(isComplete);
     localStorage.setItem("message", JSON.stringify(isComplete));
+
+    //checking for completed
+    const numCompleted = isComplete.filter((task) => {
+      if (task.completed) {
+        return task;
+      }
+    });
+    setCompletedTaskNum(numCompleted.length);
+
+    //Pending tasks
+    const pendingTask = isComplete.filter((task) => {
+      if (!task.completed) {
+        return task;
+      }
+    });
+    setPending(pendingTask.length);
   };
 
   /////////////////////////////////////////
@@ -77,17 +100,41 @@ export const TodoList = () => {
   useEffect(() => {
     const datafrmlocalStorage = localStorage.getItem("message");
     const returnedData = JSON.parse(datafrmlocalStorage);
-    // setList(returnedData);
+    setList(returnedData);
 
     //counter
     setCounter(returnedData.length);
 
     //checking for completed
-  }, [list]);
+    const numCompleted = returnedData.filter((task) => {
+      if (task.completed) {
+        return task;
+      }
+    });
+    setCompletedTaskNum(numCompleted.length);
 
-  // useEffect(() => {
-  //   localStorage.setItem("message", JSON.stringify(list));
-  // }, [list]);
+    //Pending tasks
+    const pendingTask = returnedData.filter((task) => {
+      if (!task.completed) {
+        return task;
+      }
+    });
+    setPending(pendingTask.length);
+  }, []);
+
+  ////////////////////////////////////////////////////////
+  //clearing all completed tasks
+  // const clearAllCompleted = () => {
+  //   const all = list.filter((task) => {
+  //     if (!task.completed) return task;
+  //   });
+  //   localStorage.setItem("message", JSON.stringify(all));
+
+  //   const datafrmlocalStorage = localStorage.getItem("message");
+
+  //   const returnedData = JSON.parse(datafrmlocalStorage);
+  //   setList(returnedData);
+  // };
 
   ///////////////////////////////////////////////////////
 
@@ -127,7 +174,7 @@ export const TodoList = () => {
                 <input
                   type="checkbox"
                   onClick={() => complete(task.id)}
-                  checked
+                  defaultChecked
                 />
               ) : (
                 <input type="checkbox" onClick={() => complete(task.id)} />
@@ -145,15 +192,23 @@ export const TodoList = () => {
       })}
       <br />
       <br />
-      <button>clear completed</button>
+
+      <section>
+        <h1>{counter} : Total tasks</h1>
+        <div style={{}}>
+          <h1>{completedTasksNum} :completed Tasks</h1>
+
+          {/* <button onClick={clearAllCompleted}>clear completed</button> */}
+        </div>
+
+        <h1>{pending} : Pending</h1>
+      </section>
+      <br />
+      <br />
 
       <Link to="/" className="link">
         HomePage
       </Link>
-      <section>
-        <h1>{counter} Tasks to complete</h1>
-        <h1>{completedTasksNum}</h1>
-      </section>
     </div>
   );
 };
