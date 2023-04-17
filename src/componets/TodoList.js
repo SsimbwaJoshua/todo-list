@@ -115,10 +115,16 @@ export const TodoList = () => {
   // implememnting local storage
   useEffect(() => {
     const datafrmlocalStorage = localStorage.getItem("message");
+
+    // if local storage is null(empty), then update local storage with an empyty array and stop executing the code below
+    if (datafrmlocalStorage == null) {
+      localStorage.setItem("message", JSON.stringify([]));
+      return;
+    }
+
     const returnedData = JSON.parse(datafrmlocalStorage);
     setList(returnedData);
 
-    //counter
     setCounter(returnedData.length);
 
     //checking for completed
