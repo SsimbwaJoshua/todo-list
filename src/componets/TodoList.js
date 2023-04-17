@@ -71,6 +71,14 @@ export const TodoList = () => {
       }
     });
     setCompletedTaskNum(numCompleted.length);
+
+    //Pending tasks
+    const pendingTask = newList.filter((task) => {
+      if (!task.completed) {
+        return task;
+      }
+    });
+    setPending(pendingTask.length);
   };
 
   // completed task
