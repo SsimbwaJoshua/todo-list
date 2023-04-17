@@ -43,6 +43,14 @@ export const TodoList = () => {
 
     //counter
     setCounter(newList.length);
+
+    //Pending tasks
+    const pendingTask = newList.filter((task) => {
+      if (!task.completed) {
+        return task;
+      }
+    });
+    setPending(pendingTask.length);
   };
 
   //logic for removing task
@@ -174,7 +182,7 @@ export const TodoList = () => {
                 <input
                   type="checkbox"
                   onClick={() => complete(task.id)}
-                  defaultChecked
+                  checked
                 />
               ) : (
                 <input type="checkbox" onClick={() => complete(task.id)} />

@@ -8,15 +8,18 @@ export const HomePage = () => {
     <div className="home">
       <header className="home-header">
         <h1 style={{ color: "orangered" }}>THE TODO LIST APP</h1>
-        <p>
+        <h3>
           Welcome to the todo list app. Note down your daily tasks and
           accomplish your daily goals in an orderly manner.
-        </p>
+        </h3>
       </header>
       <section className="home-section">
         <h2>How to use the app</h2>
         <ul style={{ textAlign: "left", marginLeft: "10%" }}>
-          <li>navigate to the to do app page by clicking the todoz button</li>
+          <li>
+            Navigate to the to do app page by clicking the{" "}
+            <strong>'Get Started'</strong> button
+          </li>
           <li>In the input field, type your tasks for the day</li>
           <li>
             Keep truck of what is done and what is yet to do by checking the
@@ -38,7 +41,7 @@ export const HomePage = () => {
       <br />
 
       <Link to="/todolist" className="link">
-        Todoz
+        Get Started
       </Link>
     </div>
   );
