@@ -161,17 +161,17 @@ export const TodoList = () => {
   ///////////////////////////////////////////////////////
 
   return (
-    <div style={{ marginTop: "30px" }}>
+    <div style={{ marginTop: "3rem" }}>
       <h1>THINGS TO DO</h1>
       <form onSubmit={submitTodo}>
         <input
-          style={{ width: "60%", height: "30px" }}
+          style={{ width: "60%", height: "3rem" }}
           placeholder="Add New"
           type="text"
           value={message}
           onChange={handleChange}
         />
-        <input style={{ height: "30px" }} type="submit" />
+        <input style={{ height: "3rem" }} type="submit" />
       </form>
       <br />
       {list.map((task, index) => {
@@ -183,15 +183,15 @@ export const TodoList = () => {
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
-              margin: "0 50px ",
+              margin: "0 5rem ",
 
-              border: "2px solid #ccc",
-              padding: "2px",
+              border: "0.2rem solid #ccc",
+              padding: "2rem",
 
               backgroundColor: task.completed ? "green" : "white",
             }}
           >
-            <div style={{ display: "flex", gap: "10px" }}>
+            <div style={{ display: "flex", gap: "1rem" }}>
               {task.completed ? (
                 <input
                   type="checkbox"
@@ -207,7 +207,7 @@ export const TodoList = () => {
               <h3>{task.text}</h3>
             </div>
             <button
-              style={{ width: "30px", height: "30px" }}
+              style={{ width: "3rem", height: "3rem" }}
               onClick={() => removeTask(task.id)}
             >
               X
@@ -220,7 +220,7 @@ export const TodoList = () => {
 
       <section>
         <h1>{counter} : Total tasks</h1>
-        <div style={{}}>
+        <div>
           <h1>{completedTasksNum} :completed Tasks</h1>
 
           {/* <button onClick={clearAllCompleted}>clear completed</button> */}

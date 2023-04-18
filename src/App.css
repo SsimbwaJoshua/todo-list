@@ -4,26 +4,35 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 62.5%;
+}
+
 .App {
   text-align: center;
 }
 
+.the-whole-homepage {
+  background-color: blue;
+}
+
 .home-header {
   background-color: aquamarine;
-  padding: 24px 24px 96px 24px;
+  /* padding: 2.4rem 2.4rem 9.6rem 2.4rem; */
   /* margin-bottom: 48px; */
 }
 
 li {
-  margin-bottom: 5px;
+  margin-bottom: 2rem;
 }
 .link:link,
 .link:visited {
   text-decoration: none;
+  font-size: 2rem;
   cursor: pointer;
   color: white;
   background-color: orangered;
-  padding: 8px 16px;
+  padding: 0.8rem 1.6rem;
   border-radius: 5px;
 }
 
@@ -31,8 +40,64 @@ li {
 .link:hover {
   background-color: orange;
   transition: 5ms;
-
-  transform: scale(1.2);
 }
 
 /* HOME PAGES STYLING */
+/* header section */
+.home {
+  max-width: 120rem;
+  padding: 0 3.2rem;
+  margin: 0 auto;
+
+  height: 100vh;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.home-header {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: space-between;
+  padding-bottom: 5.6rem;
+
+  background-image: url(./images/todo-img.webp);
+  background-size: cover;
+}
+
+.home-header > h1 {
+  color: orangered;
+  text-align: start;
+  margin: 3.6rem 0 0 3.6rem;
+}
+
+.home-header-text {
+  text-align: start;
+  color: #ccc;
+  /* border: 5px solid red; */
+  font-size: 1.8rem;
+  line-height: 1.2;
+  padding: 0 18rem 0 6.4rem;
+  margin-bottom: 9.6rem;
+}
+
+.home-header-text > h2 {
+  font-size: 4.2rem;
+  line-height: 0.8;
+  margin-bottom: 3.2rem;
+}
+
+/* home section/////right section */
+.home-section {
+  background-color: aquamarine;
+}
+.home-section > h2 {
+  font-size: 3.6rem;
+  margin-top: 5.6rem;
+}
+
+.list-items {
+  font-size: 2rem;
+  line-height: 1.1;
+}
