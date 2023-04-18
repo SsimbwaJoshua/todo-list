@@ -197,11 +197,14 @@ export const TodoList = () => {
                   type="checkbox"
                   onClick={() => complete(task.id)}
                   checked
+                  onChange={(e) => {
+                    return;
+                  }}
                 />
               ) : (
                 <input type="checkbox" onClick={() => complete(task.id)} />
               )}
-              <h1>{task.text}</h1>
+              <h3>{task.text}</h3>
             </div>
             <button
               style={{ width: "30px", height: "30px" }}
