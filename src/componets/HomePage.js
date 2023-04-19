@@ -23,7 +23,9 @@ export const HomePage = () => {
           </div>
         </header>
         <section className="home-section">
-          <NavBar />
+          <div className="home-nav">
+            <NavBar />
+          </div>
         </section>
       </div>
     </div>

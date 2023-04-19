@@ -13,13 +13,19 @@ html {
 }
 
 .the-whole-homepage {
-  background-color: blue;
+  background-color: #f1f3f5;
 }
 
 .home-header {
-  background-color: aquamarine;
+  /* background-color: #dee2e6; */
+  background-color: #e9ecef;
   /* padding: 2.4rem 2.4rem 9.6rem 2.4rem; */
   /* margin-bottom: 48px; */
+}
+
+.home-nav {
+  padding-top: 2.4rem;
+  margin-right: 3rem;
 }
 
 li {
@@ -46,12 +52,14 @@ li {
 .nav-link:visited {
   margin-left: 2rem;
   font-size: 2rem;
+  color: orangered;
+  text-decoration: none;
 }
 
 .nav-link:active,
 .nav-link:hover {
-  background-color: orange;
   transition: 5ms;
+  text-decoration: underline;
 }
 
 /* HOME PAGES STYLING */
@@ -101,15 +109,20 @@ li {
 }
 
 .home-section {
-  background-color: aquamarine;
-  background-image: url(./images/todo-img.webp);
+  background-image: linear-gradient(
+      to top,
+      rgba(222, 226, 230, 0.3),
+      rgba(222, 226, 230, 0.85)
+    ),
+    url(./images/todo-img.webp);
   background-size: cover;
+  background-color: #e9ecef;
 }
 
 /* How it works section */
 
 .the-whole-howitworks {
-  background-color: blue;
+  background-color: #f1f3f5;
 }
 
 .howitWorks-section {
@@ -118,12 +131,12 @@ li {
   margin: 0 auto;
 
   height: 100vh;
-  background-color: aquamarine;
+  background-color: #e9ecef;
 }
 
 .howitWorks-section > h2 {
   font-size: 3.6rem;
-  margin-top: 5.6rem;
+  margin: 5.6rem 0;
 }
 
 .howitWorks-navigation {
@@ -144,14 +157,14 @@ li {
 
 /* THE TODO LIST SECTION */
 .the-whole-todo {
-  background-color: blue;
+  background-color: #f1f3f5;
 }
 .thetodosection {
   max-width: 120rem;
   padding: 0 3.2rem 3.2rem 3.2rem;
   margin: 0 auto;
 
-  background-color: aquamarine;
+  background-color: #e9ecef;
 }
 
 .things-to-do {
