@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import React from "react";
 import { v4 as uuidv4 } from "uuid";
 import { Link } from "react-router-dom";
+import { NavBar } from "./NavBar";
 import "../App.css";
 
 export const TodoList = () => {
@@ -21,14 +22,6 @@ export const TodoList = () => {
   /////////////////////////////////////////
   const submitTodo = (event) => {
     event.preventDefault();
-
-    //local storage
-    // localStorage.setItem("message", JSON.stringify(list));
-    // localStorage.getItem("message");
-
-    // const datafrmlocalStorage = localStorage.getItem("message");
-
-    //local storage
 
     const newList = [
       ...list,
@@ -51,6 +44,9 @@ export const TodoList = () => {
       }
     });
     setPending(pendingTask.length);
+
+    //clearing input field
+    setMessage("");
   };
 
   //logic for removing task
@@ -161,79 +157,87 @@ export const TodoList = () => {
   ///////////////////////////////////////////////////////
 
   return (
-    <div style={{ marginTop: "3rem" }}>
-      <h1>THINGS TO DO</h1>
-      <form onSubmit={submitTodo}>
-        <input
-          style={{ width: "60%", height: "3rem" }}
-          placeholder="Add New"
-          type="text"
-          value={message}
-          onChange={handleChange}
-        />
-        <input style={{ height: "3rem" }} type="submit" />
-      </form>
-      <br />
-      {list.map((task, index) => {
-        // return console.log(task);
-        return (
-          <div
-            key={index}
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              margin: "0 5rem ",
-
-              border: "0.2rem solid #ccc",
-              padding: "2rem",
-
-              backgroundColor: task.completed ? "green" : "white",
-            }}
-          >
-            <div style={{ display: "flex", gap: "1rem" }}>
-              {task.completed ? (
-                <input
-                  type="checkbox"
-                  onClick={() => complete(task.id)}
-                  checked
-                  onChange={(e) => {
-                    return;
-                  }}
-                />
-              ) : (
-                <input type="checkbox" onClick={() => complete(task.id)} />
-              )}
-              <h3>{task.text}</h3>
-            </div>
-            <button
-              style={{ width: "3rem", height: "3rem" }}
-              onClick={() => removeTask(task.id)}
-            >
-              X
-            </button>
-          </div>
-        );
-      })}
-      <br />
-      <br />
-
-      <section>
-        <h1>{counter} : Total tasks</h1>
-        <div>
-          <h1>{completedTasksNum} :completed Tasks</h1>
-
-          {/* <button onClick={clearAllCompleted}>clear completed</button> */}
+    <div className="the-whole-todo">
+      <div className="thetodosection">
+        <div className="howitWorks-navigation">
+          <h1>THE TODO LIST APP</h1>
+          <NavBar />
         </div>
+        <h2 className="things-to-do">THINGS TO DO</h2>
+        <form onSubmit={submitTodo} className="form">
+          <input
+            className="entry-field"
+            placeholder="Add New"
+            type="text"
+            value={message}
+            onChange={handleChange}
+          />
+          <button type="submit" className="submit-btn">
+            submit
+          </button>
+        </form>
+        {list.map((task, index) => {
+          // return console.log(task);
+          return (
+            <div
+              key={index}
+              style={{
+                fontSize: "2rem",
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                margin: "1.6rem 5rem ",
 
-        <h1>{pending} : Pending</h1>
-      </section>
-      <br />
-      <br />
+                border: "0.1rem solid #ccc",
+                padding: "1rem 1.5rem",
 
-      <Link to="/" className="link">
-        HomePage
-      </Link>
+                backgroundColor: task.completed ? "green" : "white",
+              }}
+            >
+              <div style={{ display: "flex", gap: "1rem" }}>
+                {task.completed ? (
+                  <input
+                    type="checkbox"
+                    onClick={() => complete(task.id)}
+                    checked
+                    onChange={(e) => {
+                      return;
+                    }}
+                  />
+                ) : (
+                  <input type="checkbox" onClick={() => complete(task.id)} />
+                )}
+                <h3>{task.text}</h3>
+              </div>
+              <button
+                style={{ width: "3rem", height: "3rem" }}
+                onClick={() => removeTask(task.id)}
+              >
+                X
+              </button>
+            </div>
+          );
+        })}
+        <br />
+        <br />
+
+        <section className="counters">
+          <h1>{counter} : Total tasks</h1>
+          <div>
+            <h1>{completedTasksNum} :completed Tasks</h1>
+
+            {/* <button onClick={clearAllCompleted}>clear completed</button> */}
+          </div>
+
+          <h1>{pending} : Pending</h1>
+        </section>
+        <br />
+        <br />
+
+        <Link to="/" className="link">
+          HomePage
+        </Link>
+      </div>
     </div>
   );
 };
