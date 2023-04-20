@@ -199,7 +199,7 @@ li {
     padding: 0 12rem 0 5rem;
   }
   .home-home {
-    background-size: 1080px 956px;
+    background-size: 1080px 650px;
   }
 }
 
@@ -223,7 +223,7 @@ li {
     grid-template-columns: 1.7fr 1fr;
   }
   .home-home {
-    background-size: 750px 956px;
+    background-size: 750px 650px;
   }
 }
 
