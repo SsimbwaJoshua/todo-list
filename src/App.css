@@ -16,18 +16,6 @@ html {
   background-color: #f1f3f5;
 }
 
-.home-header {
-  /* background-color: #dee2e6; */
-  background-color: #e9ecef;
-  /* padding: 2.4rem 2.4rem 9.6rem 2.4rem; */
-  /* margin-bottom: 48px; */
-}
-
-.home-nav {
-  padding-top: 2.4rem;
-  margin-right: 3rem;
-}
-
 li {
   margin-bottom: 2rem;
 }
@@ -64,26 +52,24 @@ li {
 
 /* HOME PAGES STYLING */
 /* header section */
-.home {
+.home-home {
   max-width: 120rem;
   padding: 0 3.2rem;
   margin: 0 auto;
 
-  height: 100vh;
-
+  background-image: url(./images/todo-img-2.webp);
+  background-size: cover;
+}
+.home {
+  height: 94.5vh;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
 }
 
 .home-header {
-  display: flex;
-  flex-direction: column;
-  /* align-items: center; */
-  justify-content: space-between;
-  padding-bottom: 5.6rem;
-
-  /* background-image: url(./images/todo-img.webp);
-  background-size: cover; */
+  align-content: end;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 .home-header > h1 {
@@ -94,29 +80,17 @@ li {
 
 .home-header-text {
   text-align: start;
-  /* color: #ccc; */
-  /* border: 5px solid red; */
+
   font-size: 1.8rem;
   line-height: 1.2;
   padding: 0 18rem 0 6.4rem;
-  margin-bottom: 9.6rem;
+  margin-bottom: 14rem;
 }
 
 .home-header-text > h2 {
   font-size: 4.2rem;
   line-height: 0.8;
   margin-bottom: 3.2rem;
-}
-
-.home-section {
-  background-image: linear-gradient(
-      to top,
-      rgba(222, 226, 230, 0.3),
-      rgba(222, 226, 230, 0.85)
-    ),
-    url(./images/todo-img.webp);
-  background-size: cover;
-  background-color: #e9ecef;
 }
 
 /* How it works section */
@@ -202,4 +176,57 @@ li {
 
 .counters {
   font-size: 2rem;
+}
+
+/*//////////////////////////// @MEDIA QUERRIES ///////////////////////*/
+
+@media (max-width: 75em) {
+  .home-home {
+    margin: 0 2.4rem;
+  }
+}
+
+@media (max-width: 65em) {
+  html {
+    font-size: 56.25%;
+  }
+  .home-header-text > h2 {
+    font-size: 4.4rem;
+    line-height: 0.9;
+  }
+  .home-header-text {
+    line-height: 1.2;
+    padding: 0 12rem 0 5rem;
+  }
+  .home-home {
+    background-size: 1080px 956px;
+  }
+}
+
+/* 890px */
+@media (max-width: 56em) {
+  .home-header-text > h2 {
+    font-size: 4rem;
+  }
+  .home-header-text {
+    line-height: 1.2;
+    padding: 0 10rem 0 5rem;
+  }
+  .home-header {
+    grid-template-columns: 1.3fr 1fr;
+  }
+}
+
+/* 750px */
+@media (max-width: 47em) {
+  .home-header {
+    grid-template-columns: 1.7fr 1fr;
+  }
+  .home-home {
+    background-size: 750px 956px;
+  }
+}
+
+/* 640px */
+@media (max-width: 40em) {
 }
