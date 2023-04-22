@@ -10,6 +10,7 @@ export const HomePage = () => {
       <div className="home-home">
         <div className="howitWorks-navigation">
           <h1>THE TODO LIST APP</h1>
+
           <NavBar />
         </div>
         <div className="home">

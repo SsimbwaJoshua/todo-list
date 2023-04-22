@@ -50,6 +50,22 @@ li {
   text-decoration: underline;
 }
 
+/* hidden class */
+.hidden {
+  display: none;
+}
+.mobile-menu-icon {
+  height: 2.4rem;
+  width: 2.4rem;
+
+  align-self: end;
+}
+.menu-btn-and-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
 /* HOME PAGES STYLING */
 /* header section */
 .home-home {
@@ -223,10 +239,31 @@ li {
     grid-template-columns: 1.7fr 1fr;
   }
   .home-home {
-    background-size: 750px 650px;
+    background-size: 750px 700px;
   }
 }
 
 /* 640px */
 @media (max-width: 40em) {
+  .menu-nav-bar {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    align-items: start;
+  }
+
+  .hidden {
+    display: block;
+  }
+  .show-hide-menu {
+    display: none;
+  }
+
+  .home-header {
+    grid-template-columns: 3fr 1fr;
+  }
+  .home-home {
+    background-size: 640px 700px;
+  }
 }
