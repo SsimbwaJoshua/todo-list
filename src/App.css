@@ -7,6 +7,9 @@
 html {
   font-size: 62.5%;
 }
+body {
+  background-color: #e9ecef;
+}
 
 .App {
   text-align: center;
@@ -178,6 +181,9 @@ li {
   border: 3px solid orangered;
   border-radius: 5px 0 0 5px;
 }
+.entry-field:focus {
+  outline: none;
+}
 
 .submit-btn {
   height: 4.8rem;
@@ -194,6 +200,17 @@ li {
   font-size: 2rem;
 }
 
+/* ////////////////THE TODOLIST///////////////////////////// */
+.the-out-put {
+  font-size: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1.6rem 5rem;
+
+  border: 0.1rem solid #ccc;
+  padding: 1rem 1.5rem;
+}
 /*//////////////////////////// @MEDIA QUERRIES ///////////////////////*/
 
 @media (max-width: 75em) {
@@ -213,9 +230,6 @@ li {
   .home-header-text {
     line-height: 1.2;
     padding: 0 12rem 0 5rem;
-  }
-  .home-home {
-    background-size: 1080px 650px;
   }
 }
 
@@ -237,9 +251,6 @@ li {
 @media (max-width: 47em) {
   .home-header {
     grid-template-columns: 1.7fr 1fr;
-  }
-  .home-home {
-    background-size: 750px 700px;
   }
 }
 
@@ -263,7 +274,43 @@ li {
   .home-header {
     grid-template-columns: 3fr 1fr;
   }
-  .home-home {
-    background-size: 640px 700px;
+  .home-header-text {
+    padding: 0 7rem 0 5rem;
+    margin-bottom: 21rem;
   }
+}
+
+@media (max-width: 31em) {
+  .home {
+    align-items: center;
+  }
+  .home-header {
+    grid-template-columns: 1fr;
+  }
+  .home-header-text {
+    padding: 0 3rem 0 3rem;
+  }
+
+  .entry-field {
+    width: 80%;
+    height: 4.8rem;
+    padding-left: 1rem;
+    font-size: 2rem;
+  }
+
+  .the-out-put {
+    margin: 1.6rem 0.5rem;
+
+    padding: 1rem 1.5rem;
+  }
+
+  .howitWorks-navigation {
+    gap: 2rem;
+  }
+  .menu-nav-bar {
+    text-align: start;
+  }
+}
+
+@media (max-width: 21em) {
 }

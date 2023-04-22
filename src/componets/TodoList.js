@@ -182,17 +182,9 @@ export const TodoList = () => {
             <div
               key={index}
               style={{
-                fontSize: "2rem",
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-                margin: "1.6rem 5rem ",
-
-                border: "0.1rem solid #ccc",
-                padding: "1rem 1.5rem",
-
                 backgroundColor: task.completed ? "green" : "white",
               }}
+              className="the-out-put"
             >
               <div style={{ display: "flex", gap: "1rem" }}>
                 {task.completed ? (
@@ -207,7 +199,7 @@ export const TodoList = () => {
                 ) : (
                   <input type="checkbox" onClick={() => complete(task.id)} />
                 )}
-                <h3>{task.text}</h3>
+                <p>{task.text}</p>
               </div>
               <button
                 style={{ width: "3rem", height: "3rem" }}
